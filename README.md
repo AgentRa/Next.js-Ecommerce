@@ -122,11 +122,6 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## Acknowledgements
 Special thanks to all contributors and open-source libraries used in this project.
 
