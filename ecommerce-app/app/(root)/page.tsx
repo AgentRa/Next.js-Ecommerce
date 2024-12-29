@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-
-const HomePage = () => {
+const delay = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms));
+const HomePage = async () => {
+    await delay(2000)
   return (
     <>
-      <Button>Latest Products</Button>
+      <>Latest Products</>
     </>
   );
 };
