@@ -1,6 +1,4 @@
-const delay = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms));
-const HomePage = async () => {
-    await delay(2000)
+const HomePage = () => {
   return (
     <>
       <>Latest Products</>
