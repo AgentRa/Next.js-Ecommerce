@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
+import ModeToggle from "@/components/shared/header/mode-toggle";
 
 type Props = {};
 export default function Header({}: Props) {
@@ -24,14 +25,15 @@ export default function Header({}: Props) {
           </Link>
         </div>
         <div className="space-x-2">
+          <ModeToggle />
           <Button asChild variant="ghost">
             <Link href="/cart">
               <ShoppingCart> Cart </ShoppingCart>
             </Link>
           </Button>
-          <Button asChild variant="ghost">
+          <Button asChild>
             <Link href="/sing-in">
-              <UserIcon> Sign In </UserIcon>
+              <UserIcon /> Sign In
             </Link>
           </Button>
         </div>
