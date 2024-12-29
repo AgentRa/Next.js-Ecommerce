@@ -1,4 +1,5 @@
-type Props = {};
-export default function Homepage({}: Props) {
-  return <>Prostore</>;
-}
+const HomePage = () => {
+  return <>Latest Products</>;
+};
+
+export default HomePage;
