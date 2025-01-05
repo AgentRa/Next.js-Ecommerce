@@ -6,9 +6,9 @@ export default function ProductPrice({ value, className}: Props) {
     const [intValue, floatValue] = stringValue.split('.')
     return (
         <p className={cn('text-2xl', className)}>
-            <span className="text-xs align-super">$</span>
+            <span className="align-super text-xs">$</span>
             {intValue}
-            <span className="text-xs align-super">.{floatValue}</span>
+            <span className="align-super text-xs">.{floatValue}</span>
         </p>
     );
 };
