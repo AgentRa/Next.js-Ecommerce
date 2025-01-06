@@ -22,7 +22,7 @@ export default function Menu({}: Props) {
           </Link>
         </Button>
         <Button asChild>
-          <Link href="/sing-in">
+          <Link href="/sign-in">
             <UserIcon /> Sign In
           </Link>
         </Button>
@@ -41,7 +41,7 @@ export default function Menu({}: Props) {
                   </Link>
               </Button>
               <Button asChild>
-                  <Link href="/sing-in">
+                  <Link href="/sign-in">
                       <UserIcon /> Sign In
                   </Link>
               </Button>
