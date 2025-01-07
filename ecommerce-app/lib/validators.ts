@@ -4,8 +4,8 @@ import { formatNumberWithDecimal } from "@/lib/utils";
 const currency = z
   .string()
   .refine(
-    (value) => /^\d+(\.\d{2)?$/.test(formatNumberWithDecimal(Number(value))),
-    "Price must have exactly two decimal places",
+      (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
+      'Price must have exactly two decimal places'
   );
 
 // Schema for inserting products
@@ -26,18 +26,22 @@ export const insertProductSchema = z.object({
 export const signInFormSchema = z.object({
   email: z.string().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
-})
+});
 
 //Schemma for signing up users
-export const signUpFormSchema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters"),
-  email: z.string().email("Please enter a valid email"),
-  password: z.string().min(6, "Password must be at least 6 characters long"),
-  confirmPassword: z.string().min(6, "Confirmm password must be at least 6 characters long"),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ["confirmPassword"],
-})
+export const signUpFormSchema = z
+  .object({
+    name: z.string().min(3, "Name must be at least 3 characters"),
+    email: z.string().email("Please enter a valid email"),
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+    confirmPassword: z
+      .string()
+      .min(6, "Confirmm password must be at least 6 characters long"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
 // Cart Schemas
 export const cartItemSchema = z.object({
@@ -47,7 +51,7 @@ export const cartItemSchema = z.object({
   qty: z.number().int().nonnegative('Quantity must be a positive number'),
   image: z.string().min(1, 'Image is required'),
   price: currency,
-})
+});
 
 export const insertCartSchema = z.object({
   items: z.array(cartItemSchema),
@@ -57,4 +61,4 @@ export const insertCartSchema = z.object({
   taxPrice: currency,
   sessionCartId: z.string().min(1, 'Session cart id is required'),
   userId: z.string().optional().nullable(),
-})
+});

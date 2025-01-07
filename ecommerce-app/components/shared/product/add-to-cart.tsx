@@ -15,10 +15,10 @@ export default function AddToCart({ item }: Props) {
   const handleAddToCart = async () => {
     const res = await addItemToCart(item);
 
-    if (!res.success) {
+    if (!res?.success) {
       toast({
         variant: "destructive",
-        description: res.message,
+        description: res?.message,
       });
       return;
     }
