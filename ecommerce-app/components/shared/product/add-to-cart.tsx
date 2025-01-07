@@ -32,7 +32,7 @@ export default function AddToCart({ item }: Props) {
           onClick={() => router.push("/cart")}
         > Go To Cart</ToastAction>
       ),
-      description: `Added ${item.name} to cart`,
+      description: res.message,
     });
   };
 
