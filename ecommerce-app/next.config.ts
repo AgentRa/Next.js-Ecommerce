@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ["next-auth"],
+    optimizePackageImports: ["next-auth", 'geist/components'],
   },
 };
 
