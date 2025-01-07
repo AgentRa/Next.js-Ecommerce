@@ -4,8 +4,8 @@ import { formatNumberWithDecimal } from "@/lib/utils";
 const currency = z
   .string()
   .refine(
-      (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
-      'Price must have exactly two decimal places'
+    (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
+    "Price must have exactly two decimal places",
   );
 
 // Schema for inserting products
@@ -45,11 +45,11 @@ export const signUpFormSchema = z
 
 // Cart Schemas
 export const cartItemSchema = z.object({
-  productId: z.string().min(1, 'Product is required'),
-  name: z.string().min(1, 'Name is required'),
-  slug: z.string().min(1, 'Slug is required'),
-  qty: z.number().int().nonnegative('Quantity must be a positive number'),
-  image: z.string().min(1, 'Image is required'),
+  productId: z.string().min(1, "Product is required"),
+  name: z.string().min(1, "Name is required"),
+  slug: z.string().min(1, "Slug is required"),
+  qty: z.number().int().nonnegative("Quantity must be a positive number"),
+  image: z.string().min(1, "Image is required"),
   price: currency,
 });
 
@@ -59,6 +59,19 @@ export const insertCartSchema = z.object({
   totalPrice: currency,
   shippingPrice: currency,
   taxPrice: currency,
-  sessionCartId: z.string().min(1, 'Session cart id is required'),
+  sessionCartId: z.string().min(1, "Session cart id is required"),
   userId: z.string().optional().nullable(),
+});
+
+// Schema for shipping address
+export const shippingAddressSchema = z.object({
+  fullName: z.string().min(3, "Name must be at least 3 characters"),
+  streetAddress: z
+    .string()
+    .min(3, "Street address must be at least 3 characters"),
+  city: z.string().min(3, "Street address must be at least 3 characters"),
+  postalCode: z.string().min(3, "Street address must be at least 3 characters"),
+  country: z.string().min(3, "Street address must be at least 3 characters"),
+  lng: z.number().optional(),
+  lat: z.number().optional(),
 });
